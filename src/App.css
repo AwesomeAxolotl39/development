@@ -38,7 +38,53 @@
 }
 
 .BakeryImage{
-  width: 25vw;
+  width: 20rem; 
   border-radius: 10px;
+  align-self: center;
+}
 
+.BakeryItem {
+  background-color:lightskyblue;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 1vw; 
+}
+
+.btn{
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid darkblue;
+
+
+}
+
+.BoldFont{
+  font-weight: bold;
+}
+
+.MainGrid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: start;
+}
+
+.SideBar{
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  margin: 15px;
+  border: 2px solid skyblue;
+  border-radius: 10px;
+}
+
+.RecipeGrid{
+  display: grid;
+  margin: 15px;
+  grid-template-columns: 25rem 25rem;
+  grid-template-rows: 40rem 40rem 40rem 40rem 40rem 40rem;
+}
+
+.btnPane{
+  align-self: left;
 }
