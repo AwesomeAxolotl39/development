@@ -44,6 +44,7 @@
 }
 
 .BakeryItem {
+  font-family: "Arial", sans-serif;;
   background-color:lightskyblue;
   border-radius: 10px;
   align-items: center;
@@ -53,10 +54,12 @@
 
 .btn{
   border-radius: 5px;
-  background-color: white;
+  background-color: darkblue;
   border: 2px solid darkblue;
+}
 
-
+.btn-text{
+  color: white;
 }
 
 .BoldFont{
@@ -82,7 +85,7 @@
   display: grid;
   margin: 15px;
   grid-template-columns: 25rem 25rem;
-  grid-template-rows: 40rem 40rem 40rem 40rem 40rem 40rem;
+  grid-template-rows: 35rem 35rem 35rem 35rem 35rem 35rem;
 }
 
 .btnPane{

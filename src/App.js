@@ -16,8 +16,6 @@ bakeryData.forEach((item) => {
 });
 
 //1 sorting feature = time (vs popularity)
-//2 filtering cats = dairy free, gluten free
-//aggregator = favs section -- agg total cook time
 
 function App() {
 
@@ -26,7 +24,6 @@ function App() {
   //function to selectFilter type
   const selectFilterType = (val) => {
     setType(val);
-    console.log(val)
   };
 
   //function to check which items match filter type
@@ -34,8 +31,6 @@ function App() {
     // if no fiter selected, show all items
     if (type === "All") {
       return true
-      // } else if (type === item.type) {
-      //   return true
     } else if (type === "df" && item.df === "yes") {
       return true
     } else if (type === "gf" && item.gf === "yes") {
@@ -49,6 +44,23 @@ function App() {
   // get only bakeryData that passed filter
   const filteredData = bakeryData.filter(matchesFilterType)
 
+  const [sort, setSort] = useState("Popularity");
+
+  const selectSortType = (feature) => {
+    setSort(feature);
+  };
+
+  const sortData = ((a, b) => {
+    if (sort === "Popularity") {
+      return b.pop - a.pop
+    } else if (sort === "Time") {
+      return a.time - b.time
+    };
+  })
+
+  // code to sort items by popularity vs cooktime
+  const sortedData = filteredData.sort(sortData)
+
   //code for adding items to favorites list
   const [favList, setFavList] = useState([]);
 
@@ -56,12 +68,12 @@ function App() {
     //don't add to list if item is already in list
     if (favList.filter(thing => thing.name === item.name).length > 0) {
       return;
-    } else{
-      setFavList([...favList, {name: item.name, time: item.time, key: Date.now() }]);
-    }
-   
+    } else {
+      setFavList([...favList, { name: item.name, time: item.time, key: Date.now() }]);
+    };
   };
 
+  //remove item from fav list when clicked
   const removeM = (key) => {
     setFavList(favList.filter((favList) => key != favList.key));
   };
@@ -74,49 +86,48 @@ function App() {
         </div>
         <div class='MainGrid'>
           <div class='flex SideBar'>
-            <h4>Sort By:</h4>
+            <h4>Filter By:</h4>
             <div class='btnPane'>
               <FormControl>
                 <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="All"
-                  name="radio-buttons-group">
-                  {/* // onChange={matchesFilterType(item)}> */}
-
-                  <FormControlLabel onClick={() => selectFilterType('df')} control={<Radio />} label="Dairy Free" />
-                  <FormControlLabel onClick={() => selectFilterType('gf')} control={<Radio />} label="Gluten Free" />
-                  <FormControlLabel onClick={() => selectFilterType('All')} control={<Radio />} label="All" />
+                  name="radio-buttons-group"
+                  class='btnPane'>
+                  <FormControlLabel value="Dairy Free" onClick={() => selectFilterType('df')} control={<Radio />} label="Dairy Free" />
+                  <FormControlLabel value="Gluten Free" onClick={() => selectFilterType('gf')} control={<Radio />} label="Gluten Free" />
+                  <FormControlLabel value="All" onClick={() => selectFilterType('All')} control={<Radio />} label="All" />
+                </RadioGroup>
+              </FormControl>
+            </div>
+            <h4>Order By:</h4>
+            <div class='btnPane'>
+              <FormControl>
+                <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="Popularity"
+                  name="radio-buttons-group"
+                  class='btnPane'>
+                  <FormControlLabel value="Popularity" onClick={() => selectSortType('Popularity')} control={<Radio />} label="Popularity" />
+                  <FormControlLabel value="Time" onClick={() => selectSortType('Time')} control={<Radio />} label="Time" />
                 </RadioGroup>
               </FormControl>
             </div>
             <h4>Favorites List:</h4>
+            <p>Click on heart to remove item from favorites list</p>
             <FavList favList={favList} remove={removeM} />
           </div>
-          <div class='flex RecipeGrid'>
-            {filteredData.map((item) =>
+          <div class='d-flex RecipeGrid'>
+            {sortedData.map((item) =>
               (<BakeryItem item={item} handleInput={handleInput} />))
             }
           </div>
-
         </div>
-
       </div>
-
-
     </div>
   );
 }
 
 export default App;
-
-
-/* {
-bakeryData.map((item, index) => (
-  <BakeryItem item={item} handleInput={handleInput} />
-))
-} */
-
-// setFavList({
-//   favList: favList.filter(e => e.name !== item.name)
-// });

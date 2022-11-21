@@ -1,11 +1,16 @@
 import App from '../App';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import {
+    Checkbox
+} from '@mui/material';
 
 const BakeryItem = ({item, handleInput}) => {
     return (
         <div class="BakeryItem col-sm-4">
             <h2 class="text-xl font-bold">{item.name}</h2>
             <div>
-                <img class="BakeryImage" src={item.image} alt='recipe item' />
+                <img class="BakeryImage" src={item.image} alt={item.name} />
             </div>
             <div>
                 <p><span class="BoldFont">Popularity:</span> {item.pop}
@@ -15,7 +20,12 @@ const BakeryItem = ({item, handleInput}) => {
                 </p>
             </div>
             <div>
-                <button class="btn" onClick={() => handleInput(item)}>Add to Favorites</button>
+                <button class="btn btn-text" onClick={() => handleInput(item)}>Add to Favorites</button>
+                {/* <Checkbox
+                    icon={<BookmarkBorderIcon />}
+                    
+                    checkedIcon={<BookmarkIcon />}
+                /> */}
             </div>
         </div>
     )
