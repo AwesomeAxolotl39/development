@@ -75,7 +75,7 @@
 .SideBar{
   display: flex;
   flex-direction: column;
-  width: 25vw;
+  width: 30vw;
   margin: 15px;
   border: 2px solid skyblue;
   border-radius: 10px;
@@ -84,8 +84,22 @@
 .RecipeGrid{
   display: grid;
   margin: 15px;
-  grid-template-columns: 25rem 25rem;
+  grid-template-columns: 30rem 30rem;
   grid-template-rows: 35rem 35rem 35rem 35rem 35rem 35rem;
+}
+
+.TopBar{
+  background-color:darkblue;
+  height: 10vw;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.TopText{
+  margin: 0px;
+  font-size: 50px;
+  font-family:Impact;
+  color: white
 }
 
 .btnPane{

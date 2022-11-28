@@ -81,8 +81,9 @@ function App() {
   return (
     <div className="App">
       <div class='d-flex row'>
-        <div>
-          <h1>Recipe Finder</h1>
+        <div class='TopBar'>
+          {/* <image src='/images/logo.png' alt='picture of a cupcake'></image> */}
+          <h1 class='TopText'>Recipe Finder</h1>
         </div>
         <div class='MainGrid'>
           <div class='flex SideBar'>
