@@ -1,9 +1,4 @@
 import App from '../App';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import {
-    Checkbox
-} from '@mui/material';
 
 const BakeryItem = ({item, handleInput}) => {
     return (
@@ -21,11 +16,6 @@ const BakeryItem = ({item, handleInput}) => {
             </div>
             <div>
                 <button class="btn btn-text" onClick={() => handleInput(item)}>Add to Favorites</button>
-                {/* <Checkbox
-                    icon={<BookmarkBorderIcon />}
-                    
-                    checkedIcon={<BookmarkIcon />}
-                /> */}
             </div>
         </div>
     )

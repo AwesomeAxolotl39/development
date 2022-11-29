@@ -75,7 +75,7 @@ function App() {
 
   //remove item from fav list when clicked
   const removeM = (key) => {
-    setFavList(favList.filter((favList) => key != favList.key));
+    setFavList(favList.filter((favList) => key !== favList.key));
   };
 
   return (
