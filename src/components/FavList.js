@@ -1,5 +1,5 @@
 import React from 'react'
-import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import {
     ListItemText,
     ListItemButton,
@@ -12,7 +12,7 @@ export default function MList({favList, remove}) {
 
         <ListItemButton onClick={() => remove(item.key)}>
         <ListItemIcon>
-          <FavoriteOutlinedIcon />
+          <FavoriteIcon />
         </ListItemIcon>
         <ListItemText>{item.name} <span class="BoldFont">Cook Time:</span> {item.time} hours</ListItemText>
       </ListItemButton>

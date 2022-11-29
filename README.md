@@ -18,6 +18,7 @@ Data is passed down through the components via props (or, in my case, directly a
 const ComponentName = (props)
 I did 
 const ComponentName = ({param1, param2})
+(A TA in hours told me to do this because it can be more intuitive than just passing in props)
 
 ### How the User Triggers State Changes
 There are 4 ways that the user can trigger changes in state. First, they can click one of the radio buttons that determines how the data is filtered (thus changing the state of the constant "type). They can also click one of the radio buttons that determines how the data is filtered (thus changing the state of the constant "sort). If the user clicks the "Add to Favorites," it will change the state of the favList constant, adding the name and time of the clicked on item to the list. 
