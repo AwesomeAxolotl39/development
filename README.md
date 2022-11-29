@@ -14,7 +14,10 @@ One of the usability features that I included is adding an alt text to all of my
 In addition to the App, I have 2 other components: BakeryItem and FavList. For props, BakeryItem takes in an item (from bakeryData) and the handleInput function, which adds items to the favorites list when a corresponding button is clicked. In terms of state, in App the filtering and sorting of the data both rely on the use of state (and the setters corresponding to which filter or sorting function is being used set these states). Then the current state of the filter/sort determines which items from bakeryData actually show up as bakeryItems as well as in what order they appear. The second component, FavList,  
 
 ### How Data is Passed Down Through Components
-
+Data is passed down through the components via props (or, in my case, directly as the arguments because, rather than do 
+const ComponentName = (props)
+I did 
+const ComponentName = ({param1, param2})
 
 ### How the User Triggers State Changes
 There are 4 ways that the user can trigger changes in state. First, they can click one of the radio buttons that determines how the data is filtered (thus changing the state of the constant "type). They can also click one of the radio buttons that determines how the data is filtered (thus changing the state of the constant "sort). If the user clicks the "Add to Favorites," it will change the state of the favList constant, adding the name and time of the clicked on item to the list. 
